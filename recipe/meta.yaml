@@ -1,0 +1,49 @@
+{% set name = "autocfg" %}
+{% set version = "0.0.8" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 749986b4f3b3bd85b15298734bf8fa4a590e6c34a314ac515025e058ed76c319
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+
+requirements:
+  host:
+    - python
+    - pip
+    - setuptools
+    - wheel
+    - pyyaml
+  run:
+    - python
+    - pyyaml
+
+test:
+  imports:
+    - autocfg
+  requires:
+    - pip
+    - pytest
+  commands:
+    - pip check
+    - cd tests/python && pytest
+
+about:
+  home: https://github.com/zhreshold/autocfg
+  license: Apache 2.0
+  license_family: Apache
+  summary: All you need is a minimal config system for automl.
+  description: All you need is a minimal config system for automl.
+  doc_url: https://github.com/zhreshold/autocfg/blob/master/examples/basics.ipynb
+  dev_url: https://github.com/zhreshold/autocfg
+
+extra:
+  recipe-maintainers:
+    - dkomisar
