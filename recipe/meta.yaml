@@ -40,6 +40,7 @@ about:
   home: https://github.com/zhreshold/autocfg
   license: Apache 2.0
   license_family: Apache
+  license_file: LICENSE
   summary: All you need is a minimal config system for automl.
   description: All you need is a minimal config system for automl.
   doc_url: https://github.com/zhreshold/autocfg/blob/master/examples/basics.ipynb
