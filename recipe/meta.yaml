@@ -30,10 +30,10 @@ test:
     - autocfg
   requires:
     - pip
-    - pytest
   commands:
     - pip check
-    - cd tests/python && pytest
+    # disabled because tests not packaged with source
+    #- cd tests/python && pytest
 
 about:
   home: https://github.com/zhreshold/autocfg
