@@ -10,6 +10,7 @@ source:
   sha256: 749986b4f3b3bd85b15298734bf8fa4a590e6c34a314ac515025e058ed76c319
 
 build:
+  skip: True      # [py<36]
   noarch: python
   number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
@@ -30,15 +31,16 @@ test:
     - autocfg
   requires:
     - pip
-    - pytest
   commands:
     - pip check
-    - cd tests/python && pytest
+    # disabled because tests not packaged with source
+    #- cd tests/python && pytest
 
 about:
   home: https://github.com/zhreshold/autocfg
   license: Apache 2.0
   license_family: Apache
+  license_file: LICENSE
   summary: All you need is a minimal config system for automl.
   description: All you need is a minimal config system for automl.
   doc_url: https://github.com/zhreshold/autocfg/blob/master/examples/basics.ipynb
